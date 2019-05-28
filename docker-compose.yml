@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/usr/local/openresty/nginx/conf/
+      - ./static:/usr/local/static/
+    command:
+      - /usr/local/openresty/bin/openresty
+      - -g
+      - daemon off;
