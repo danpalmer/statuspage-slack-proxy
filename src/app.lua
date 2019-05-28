@@ -53,7 +53,7 @@ local out_data = {
                     short = true,
                 },
             },
-            footer = "Forwarded by foobar.herokuapp.com",
+            footer = "Forwarded by statuspage-slack-proxy.herokuapp.com",
         },
     },
 }

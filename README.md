@@ -1,8 +1,18 @@
+### Running locally
+
 ```shell
-docker run \
-    --rm \
-    -v $PWD/src:/usr/local/openresty/nginx/conf/ \
-    -v $PWD/static:/usr/local/static/ \
-    -p 8080:80 \
-    openresty/openresty:alpine
+docker-compose up
+```
+
+### Building image
+
+```shell
+docker-compose build
+```
+
+### Deploying
+
+```shell
+heroku container:push web
+heroku container:release web
 ```
