@@ -38,9 +38,8 @@ local out_data = {
             fallback = sp_name .. " is experiencing a " .. sp_desc .. " in component '" .. sp_comp .. "'",
             color = colours[sp_indc],
             author_name = sp_name,
-            title = sp_desc,
+            title = sp_desc .. " in " .. sp_comp .. " component",
             title_link = sp_link,
-            text = sp_desc .. " in " .. sp_comp .. " component",
             fields = {
                 {
                     title = "Service",
