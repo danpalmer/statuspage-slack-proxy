@@ -1,6 +1,7 @@
 FROM openresty/openresty:alpine-fat
 
-COPY src/* /etc/nginx/
+COPY src/* /usr/local/openresty/nginx/conf/
+COPY static/* /usr/local/static/
 COPY docker-entrypoint.sh /
 
 RUN cp /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.pem
