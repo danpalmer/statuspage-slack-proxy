@@ -32,6 +32,11 @@ local sp_link = page_data["page"]["url"]
 local sp_indc = in_data["page"]["status_indicator"]
 local sp_comp = in_data["component"]["name"]
 
+local domain = "statuspage-slack-proxy.herokuapp.com"
+local by_line = "Forwarded by <https://" .. domain .. "|" .. domain .. ">"
+local unsubscribe = "<" .. in_data["meta"]["unsubscribe_url"] .. "|Unsubscribe>"
+local footer = by_line .. " – " .. unsubscribe
+
 local out_data = {
     attachments = {
         {
@@ -52,7 +57,7 @@ local out_data = {
                     short = true,
                 },
             },
-            footer = "Forwarded by statuspage-slack-proxy.herokuapp.com",
+            footer = footer,
         },
     },
 }
