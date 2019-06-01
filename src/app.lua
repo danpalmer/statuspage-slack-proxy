@@ -58,5 +58,4 @@ local out_data = {
 }
 
 local out_json = json.encode(out_data)
-ngx.log(0, out_json)
 ngx.req.set_body_data(out_json)
