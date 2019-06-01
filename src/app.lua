@@ -34,7 +34,7 @@ local sp_comp = in_data["component"]["name"]
 
 local domain = "statuspage-slack-proxy.herokuapp.com"
 local by_line = "Forwarded by <https://" .. domain .. "|" .. domain .. ">"
-local unsubscribe = "<" .. in_data["meta"]["unsubscribe_url"] .. "|Unsubscribe>"
+local unsubscribe = "<" .. in_data["meta"]["unsubscribe"] .. "|Unsubscribe>"
 local footer = by_line .. " – " .. unsubscribe
 
 local out_data = {
