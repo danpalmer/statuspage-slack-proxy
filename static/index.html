@@ -10,12 +10,95 @@
         <title>Statuspage Slack Proxy</title>
     </head>
     <body>
-        <div class="container-fluid mt-5">
+        <div class="container-fluid mt-5 mb-5">
             <div class="col-xs-12 col-md-8 col-lg-6 col-xl-4">
                 <h1>Statuspage Slack Proxy</h1>
                 <p class="lead">
                     Get notifications from your tech services in Slack. GitHub,
                     CircleCI, SendGrid, and more.
+                </p>
+                <img
+                    src="screenshot.png"
+                    class="img-fluid"
+                    alt="Image of service status notifications in a Slack channel"
+                />
+                <hr class="mt-5 mb-5" />
+                <h4>Setup instructions</h4>
+                <p class="mb-4">
+                    Setup only takes a minute. To make setup of more services in
+                    the future save your webhook URL in the topic of your
+                    monitoring Slack channel.
+                </p>
+                <ol>
+                    <li class="mb-4">
+                        Create a Slack webhook by following steps 1-3 in
+                        Slack&rsquo;s webhook documentation here:<br>
+                        <a
+                            href="https://api.slack.com/incoming-webhooks#getting-started"
+                        >
+                            https://api.slack.com/incoming-webhooks#getting-started
+                        </a>
+                    </li>
+                    <li class="mb-4">
+                        You should now have a webhook URL that looks like:<br><br>
+                        <code>
+                            https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX
+                        </code>
+                    </li>
+                    <li class="mb-4">
+                        Replace <code>hooks.slack.com</code> with
+                        <code>statuspage-slack-proxy.herokuapp.com</code> to get
+                        a URL like this:<br><br>
+                        <code>
+                            https://statuspage-slack-proxy.herokuapp.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX
+                        </code>
+                    </li>
+                    <li class="mb-4">
+                        Head to a status page that you want to track.
+                    </li>
+                    <li class="mb-4">
+                        Click the "Subscribe to Notifications" button on the
+                        page, and select the <code><></code> icon to configure a
+                        webhook. (Note: this is not enabled by default, you may
+                        need to ask the administrator of the status page to
+                        enable it)
+                    </li>
+                    <li class="mb-4">
+                        Enter the proxy webhook URL you have created, and a
+                        fallback email address.
+                    </li>
+                    <li class="mb-4">
+                        You&rsquo;re all done! You&rsquo;ll receive Slack
+                        notifications as Statuspage sends them.
+                    </li>
+                </ol>
+                <hr class="mt-5 mb-5" />
+                <h4>Security & Privacy</h4>
+                <p>
+                    This service has no long-term persistence mechanism for
+                    data. The last 1500 lines of request logs are kept to aid in
+                    keeping the service working. These lines are stored
+                    securely in Heroku. No other logging or storage is
+                    configured.
+                </p>
+                <p>
+                    Unsubscription must be done from a notification, as this
+                    sercive has no knowledge about active subscriptions.
+                </p>
+                <hr class="mt-5 mb-5" />
+                <h4>About this service</h4>
+                <p>
+                    This service is run for free as a convenience. It is used
+                    by the engineering team at
+                    <a href="https://thread.engineering/">Thread</a> and will
+                    be maintained for the forseeable future, but no guarantees
+                    about uptime are made. Statuspage will fall back to email
+                    notifications should webhook delivery fail.
+                </p>
+                <p>
+                    The service was built by
+                    <a href="https://danpalmer.me/">Dan Palmer</a> with Nginx
+                    and Lua.
                 </p>
             </div>
         </div>
