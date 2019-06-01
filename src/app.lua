@@ -31,6 +31,7 @@ local sp_desc = in_data["page"]["status_description"]
 local sp_link = page_data["page"]["url"]
 local sp_indc = in_data["page"]["status_indicator"]
 local sp_comp = in_data["component"]["name"]
+local sp_comp_desc = in_data["component"]["description"]
 
 local domain = "statuspage-slack-proxy.herokuapp.com"
 local by_line = "Forwarded by <https://" .. domain .. "|" .. domain .. ">"
@@ -61,6 +62,17 @@ local out_data = {
         },
     },
 }
+
+if not (sp_comp_desc == json.null or sp_comp_desc == '')   then
+    table.insert(
+        out_data["attachments"][1]["fields"],
+        {
+            title = "Description",
+            value = sp_comp_desc,
+            short = false,
+        }
+    )
+end
 
 local out_json = json.encode(out_data)
 ngx.req.set_body_data(out_json)
